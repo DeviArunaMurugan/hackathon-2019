@@ -10,6 +10,9 @@
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images\background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -17,6 +20,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -27,8 +31,13 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Controls" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-                <syncfusion:ComboBoxAdv DefaultText="Select the controls" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="40" Grid.Column="1" AllowMultiSelect="True" x:Name="combobox"/>
+                <Label Content="Controls" VerticalAlignment="Center" Foreground="White"
+                       HorizontalAlignment="Center" FontSize="14"/>
+                <syncfusion:ComboBoxAdv DefaultText="Select the controls" 
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center" 
+                                        Width="150" Height="40" Grid.Column="1" 
+                                        AllowMultiSelect="True" x:Name="combobox"/>
             </Grid>
         </Grid>
 
@@ -44,26 +53,26 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Content="Branch" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-                <ComboBox Grid.Column="1" x:Name="branchComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="40">
+                <Label Grid.Column="0" Content="Branch"  Foreground="White"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       FontSize="14"/>
+                <ComboBox Grid.Column="1" x:Name="branchComboBox" SelectedIndex="0"
+                          HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Width="100" Height="40">
                     <ComboBoxItem Content="Development"></ComboBoxItem>
                     <ComboBoxItem Content="Master"></ComboBoxItem>
                 </ComboBox>
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Label Grid.Column="0" Content="Version" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-                <ComboBox Grid.Column="1" x:Name="versionComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="40">
-                    <ComboBoxItem Content="Development"></ComboBoxItem>
-                    <ComboBoxItem Content="Master"></ComboBoxItem>
-                </ComboBox>
+                <Button Content="Git Clone" HorizontalAlignment="Center"
+                        Click="GitClone_Click"
+                        VerticalAlignment="Top" HorizontalContentAlignment="Center" 
+                        VerticalContentAlignment="Center" Width="150" Height="40"/>
             </Grid>
         </Grid>
+
+    
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -71,18 +80,16 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="Git Clone" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="40"/>
-            <Button Grid.Column="1" Content="Browse" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="40"/>
-        </Grid>
-
-        <Grid Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Button Content="Generate APK" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="40"/>
-            <Button Grid.Column="1" Content="Generate App Bundle" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="40"/>
+            <Button Content="Generate APK" HorizontalAlignment="Center"
+                    Click="GenerateAPK_Click"
+                    VerticalAlignment="Center" HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="150" Height="40"/>
+            
+            <Button Grid.Column="1" Content="Generate App Bundle" Click="GenerateAppBundle_Click" x:Name="generateAppBundle"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                    Width="150" Height="40"/>
         </Grid>
     </Grid>
 </Page>

@@ -38,6 +38,12 @@
     <Reference Include="Syncfusion.Licensing, Version=17.4460.0.40, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.Licensing.17.4.0.40\lib\net46\Syncfusion.Licensing.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.SfInput.WPF, Version=17.4460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfInput.WPF.17.4.0.40\lib\net46\Syncfusion.SfInput.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfShared.WPF, Version=17.4460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfShared.WPF.17.4.0.40\lib\net4.6\Syncfusion.SfShared.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="Syncfusion.SfTextInputLayout.WPF, Version=17.4460.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <HintPath>..\packages\Syncfusion.SfTextInputLayout.WPF.17.4.0.40\lib\net46\Syncfusion.SfTextInputLayout.WPF.dll</HintPath>
     </Reference>
@@ -68,6 +74,9 @@
     <Compile Include="APKGeneration.xaml.cs">
       <DependentUpon>APKGeneration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GenerateIOS.xaml.cs">
+      <DependentUpon>GenerateIOS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pub_publish.xaml.cs">
       <DependentUpon>Pub_publish.xaml</DependentUpon>
     </Compile>
@@ -77,7 +86,14 @@
     <Compile Include="UtilityPage.xaml.cs">
       <DependentUpon>UtilityPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WebHost.xaml.cs">
+      <DependentUpon>WebHost.xaml</DependentUpon>
+    </Compile>
     <Page Include="APKGeneration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GenerateIOS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -109,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UtilityPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WebHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +194,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Help.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\background.jpg" />

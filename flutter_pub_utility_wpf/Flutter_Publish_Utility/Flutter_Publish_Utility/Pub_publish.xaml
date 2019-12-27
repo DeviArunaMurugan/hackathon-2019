@@ -2,14 +2,20 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+     xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Flutter_Publish_Utility"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="600"
       Title="Pub_publish"
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf">
 
     <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="Images\background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -17,7 +23,11 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Right" VerticalAlignment="Top"
+               Height="50" Width="50"
+                   Source="Images/Help.png"/>
         <Grid Grid.Row="1">
+          
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition/>
@@ -27,8 +37,29 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Controls" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-                <syncfusion:ComboBoxAdv DefaultText="Select the controls" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="40" Grid.Column="1" AllowMultiSelect="True" x:Name="combobox"/>
+                <Label Content="Controls" VerticalAlignment="Center"
+                       Foreground="white"
+                       HorizontalAlignment="Center" FontSize="14"/>
+                <syncfusion:ComboBoxAdv DefaultText="Select the controls"
+                                        HorizontalContentAlignment="Center" 
+                                        VerticalContentAlignment="Center" 
+                                        HorizontalAlignment="Left"
+                                        Width="150" Height="40" Grid.Column="1" 
+                                        AllowMultiSelect="True" x:Name="combobox"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock  Width="100" TextWrapping="Wrap" Text="Scheduled publish :" 
+                            Foreground="white"
+                            VerticalAlignment="Center" Margin="25,0,0,0"
+                       HorizontalAlignment="Center" FontSize="14"/>
+
+                <syncfusion:SfDatePicker Grid.Column="1"/>
             </Grid>
         </Grid>
 
@@ -44,9 +75,15 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Content="Branch" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-                <ComboBox Grid.Column="1" x:Name="branchComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="40">
-                    <ComboBoxItem Content="Development"></ComboBoxItem>
+                <Label Grid.Column="0" Content="Branch" VerticalAlignment="Center"
+                       Foreground="white" 
+                       HorizontalAlignment="Center" FontSize="14"/>
+                <ComboBox Grid.Column="1" x:Name="branchComboBox" 
+                          HorizontalAlignment="Left" VerticalAlignment="Center"
+                          SelectedIndex="0" HorizontalContentAlignment="Center"
+                          VerticalContentAlignment="Center"
+                          Width="100" Height="40">
+                    <ComboBoxItem  Content="Development"></ComboBoxItem>
                     <ComboBoxItem Content="Master"></ComboBoxItem>
                 </ComboBox>
             </Grid>
@@ -57,11 +94,13 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" Content="Version" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-                <ComboBox Grid.Column="1" x:Name="versionComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="40">
-                    <ComboBoxItem Content="Development"></ComboBoxItem>
-                    <ComboBoxItem Content="Master"></ComboBoxItem>
-                </ComboBox>
+                <Label Grid.Column="0" Content="Version" Foreground="white"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" 
+                       FontSize="14"/>
+                <TextBox x:Name="versionTextBlock" HorizontalAlignment="Left"
+                         VerticalAlignment="Center" HorizontalContentAlignment="Center"
+                         VerticalContentAlignment="Center"
+                         Grid.Column="1" Width="100" Height="30"/>
             </Grid>
         </Grid>
 
@@ -71,8 +110,16 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="Git Clone" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="40"/>
-            <Button Grid.Column="1" Content="Pub Publish" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="40"/>
+            <Button Content="Git Clone" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center" x:Name="gitClone"
+                    Click="GitClone_Click" Style="{StaticResource RoundedButtonStyle}"
+                    VerticalContentAlignment="Center" Width="150" Height="40"/>
+            <Button Grid.Column="1" Content="Pub Publish"
+                    HorizontalAlignment="Center" Style="{StaticResource RoundedButtonStyle}"
+                    x:Name="pubPublish" Click="PubPublish_Click"
+                    VerticalAlignment="Center" 
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center" Width="150" Height="40"/>
         </Grid>
     </Grid>
 </Page>

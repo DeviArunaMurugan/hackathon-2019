@@ -40,8 +40,7 @@
                               FocusedForeground="White" x:Name="nameLayout"
                              HintFloatMode="Float" Foreground="White" 
                                                     ErrorForeground="Yellow"
-                                                    ErrorText="Invalid username"
-                                  HelperText="Enter your name">
+                                                    ErrorText="Invalid username">
                         <TextBox x:Name="loginText"  Foreground="White"   
                                  CaretBrush="white"  />
                     </inputLayout:SfTextInputLayout>
@@ -53,8 +52,7 @@
                              HintFloatMode="Float" Foreground="White" 
                                                     GotFocus="PasswordText_LostFocus"
                                                     ErrorForeground="Yellow"
-                                                    ErrorText="Invalid password"
-                                  HelperText="Enter password" >
+                                                    ErrorText="Invalid password">
                         <TextBox x:Name="passwordText"  Foreground="White" 
                                     CaretBrush="white"/>
                     </inputLayout:SfTextInputLayout>

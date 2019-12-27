@@ -23,6 +23,21 @@ namespace Flutter_Publish_Utility
         public ScreenCompare()
         {
             InitializeComponent();
+            ComboBox1.SelectedIndex = 0;
+        }
+
+        private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((sender as ComboBox).SelectedIndex == 0)
+            {
+                screen_compare.Content = "Take Screenshot";
+            }
+            else
+            {
+                screen_compare.Content = "Compare";
+            }
         }
     }
+
+  
 }

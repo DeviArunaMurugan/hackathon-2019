@@ -28,16 +28,31 @@ namespace Flutter_Publish_Utility
         {
             InitializeComponent();
 
-            Frame tabFrame = new Frame();
-            Pub_publish page1 = new Pub_publish();
-            tabFrame.Content = page1;
-            apk_tab.Content = tabFrame;
-
             Frame tabFrame1 = new Frame();
+            Pub_publish page1 = new Pub_publish();
+            tabFrame1.Content = page1;
+            apk_tab.Content = tabFrame1;
+
+            Frame tabFrame2 = new Frame();
             APKGeneration page2 = new APKGeneration();
-            tabFrame1.Content = page2;
-            GenerateAPK.Content = tabFrame1;
-            
+            tabFrame2.Content = page2;
+            GenerateAPK.Content = tabFrame2;
+
+            Frame tabFrame3 = new Frame();
+            ScreenCompare page3 = new ScreenCompare();
+            tabFrame3.Content = page3;
+            screen_compare.Content = tabFrame3;
+
+            Frame tabFrame4 = new Frame();
+            WebHost page4 = new WebHost();
+            tabFrame4.Content = page4;
+            web_host.Content = tabFrame4;
+
+            Frame tabFrame5 = new Frame();
+            GenerateIOS page5 = new GenerateIOS();
+            tabFrame5.Content = page5;
+            generate_ios.Content = tabFrame5;
+
         }
 
         /// <summary>
@@ -102,23 +117,7 @@ namespace Flutter_Publish_Utility
         }
 
         private void executePowershell(string location, string command)
-        {
-            //var Restoreprocess = new System.Diagnostics.Process();
-            //Restoreprocess.StartInfo.RedirectStandardOutput = true;
-            //String fileName = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "commands.bat");
-            //if (File.Exists(fileName))
-            //{
-            //    File.Delete(fileName);
-            //}
-            //StreamWriter outputFile = new StreamWriter(fileName);
-            //outputFile.WriteLine(command);
-            //outputFile.Close();
-            //Restoreprocess.StartInfo.WorkingDirectory = location;
-            //Restoreprocess.StartInfo.Arguments = @"-X";
-            //Restoreprocess.StartInfo.UseShellExecute = false;
-            //Restoreprocess.StartInfo.FileName = fileName;
-            //Restoreprocess.Start();
-
+        {    
             var Restoreprocess = new Process();
             Restoreprocess.StartInfo.FileName = "cmd.exe";
             Restoreprocess.StartInfo.WorkingDirectory = location;
@@ -142,26 +141,10 @@ namespace Flutter_Publish_Utility
                     System.Windows.MessageBox.Show("issues found");
                     return;
                 }
-
-
-
                 System.Windows.MessageBox.Show(output[index - 3] + " issues found");
             }
 
-
-
             Restoreprocess.WaitForExit();
-            //if (File.Exists(fileName))
-            //{
-            //    File.Delete(fileName);
-            //}
-
-
-
-            //outputFile = new StreamWriter(fileName, true);
-            //outputFile.WriteLine("flutter build apk");
-            //outputFile.Close();
-            //Restoreprocess.StartInfo.FileName = fileName;
             Restoreprocess.StartInfo.Arguments = "/c " + "flutter build apk";
             Restoreprocess.Start();
             output = Restoreprocess.StandardOutput.ReadToEnd();
@@ -292,11 +275,6 @@ namespace Flutter_Publish_Utility
                 File.WriteAllText(location + @"\lib\" + controlName + ".dart", scriptReferenceText);
             }
         }
-
-
-
-
-
 
         /// <summary>
         /// To get desired project directory

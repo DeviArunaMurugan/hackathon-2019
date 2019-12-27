@@ -20,9 +20,9 @@
             <TabControl Grid.Row="1">
                 <TabItem Header="Pub Publish" Width="150" x:Name="apk_tab"/>
                 <TabItem Header="Generate APK" Width="150" x:Name="GenerateAPK"/>
-                <TabItem Header="Screen Compare" Width="150"/>
-                <TabItem Header="Web Host" Width="150"/>
-                <TabItem Header="Generate IOS" Width="150"/>
+                <TabItem Header="Screen Compare" Width="150" x:Name="screen_compare"/>
+                <TabItem Header="Web Host" Width="150" x:Name="web_host"/>
+                <TabItem Header="Generate IOS" Width="150" x:Name="generate_ios"/>
             </TabControl>
         </Grid>
     </Border>

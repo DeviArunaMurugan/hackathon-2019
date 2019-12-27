@@ -35,8 +35,6 @@ namespace Flutter_Publish_Utility
 
         private void LogIn_Click(object sender, RoutedEventArgs e)
         {
-           
-
             Model currentUser = null;
             foreach (var user in viewModel.Userlists)
             {
